@@ -349,3 +349,115 @@ while i<len(s1):
   result+=s1[i]
   i+=1
 print("Final string:",result)
+
+#Prac-4 Q1
+import string
+print("Uppercase Alphabets:", string.ascii_uppercase)
+print("Lowercase Alphabets:", string.ascii_lowercase)
+
+#Prac-4 Q2
+num=int(input("Enter a number for multiplication table:-"))
+for i in range(1, 11):
+    print(num, "x", i, "=", num*i)
+
+#Prac-4 Q3
+s=input("Enter a string:-")
+alphabets=sum(c.isalpha() for c in s)
+digits=sum(c.isdigit() for c in s)
+print("Number of alphabets:-", alphabets)
+print("Number of digits:-", digits)
+
+#Prac-4 Q4
+num=int(input("Enter a number:-"))
+is_prime=True
+if num<2:
+    is_prime=False
+for i in range(2, int(num**0.5)+1):
+    if num%i==0:
+        is_prime=False
+if is_prime:
+    print(num, "is a prime number.")
+else:
+    print(num, "is not a prime number.")
+is_perfect=sum(i for i in range(1, num) if num%i==0)==num
+if is_perfect:
+    print(num, "is a perfect number.")
+else:
+    print(num, "is not a perfect number.")
+is_armstrong=sum(int(digit)**len(str(num)) for digit in str(num))==num
+if is_armstrong:
+    print(num, "is an Armstrong number.")
+else:
+    print(num, "is not an Armstrong number.")
+is_palindrome=str(num)==str(num)[::-1]
+if is_palindrome:
+    print(num, "is a palindrome.")
+else:
+    print(num, "is not a palindrome.")
+last_digit=num%10
+if last_digit==0:
+    is_automorphic=True
+else:
+    is_automorphic=str(num**2).endswith(str(num))
+if is_automorphic:
+    print(num, "is an automorphic number.")
+else:
+    print(num, "is not an automorphic number.")
+
+#Prac-4 Q5
+for a in range(1, 31):
+    for b in range(a, 31):
+        c=a**2+b**2
+        c=int(c**0.5)
+        if c**2==a**2+b**2 and c<=30:
+            print(a, b, c)
+
+#Prac-4 Q6
+for hour in range(24):
+    if hour==0:
+        print("12 AM")
+    elif hour<12:
+        print(hour, "AM")
+    elif hour==12:
+        print("12 PM")
+    else:
+        print(hour-12, "PM")
+
+#Prac-4 Q7
+import math
+def factorial(n):
+    return 1 if n==0 else n*factorial(n-1)
+n=int(input("Enter n:-"))
+r=int(input("Enter r:-"))
+nCr=factorial(n)//(factorial(r)*factorial(n-r))
+nPr=factorial(n)//factorial(n-r)
+print("nCr:", nCr)
+print("nPr:", nPr)
+
+#Prac-4 Q8
+num=int(input("Enter a number to find factorial: "))
+fact=factorial(num)
+print("Factorial:", fact)
+
+#Prac-4 Q9
+n=int(input("Enter N:-"))
+for i in range(n, 0, -1):
+    print(i)
+
+#Prac-4 Q10
+n=int(input("Enter number of Fibonacci numbers to generate:-"))
+fib=[0, 1]
+for i in range(2, n):
+    fib.append(fib[-1]+fib[-2])
+print("Fibonacci series:", fib[:n])
+
+#Prac-4 Q11
+import math
+x=float(input("Enter x in radians:-"))
+sin_x=x
+term=x
+for i in range(1, 10):
+    term*=-x*x/(2*i*(2*i+1))
+    sin_x+=term
+print("sin(x):", sin_x)
+
